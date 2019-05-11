@@ -67,8 +67,14 @@ class Controller
         if (XH_ADM && $pcf['url_numeric']) {
             $config['urls'] = array_flip($u);
         }
+        $file = $pth['folder']['plugins'] . 'onepage/onepage.min.js';
+        if (is_readable($pth['folder']['template'] . 'onepage.min.js')) {
+            $file = $pth['folder']['template'] . 'onepage.min.js';
+        } elseif (is_readable($pth['folder']['template'] . 'onepage.js')) {
+            $file = $pth['folder']['template'] . 'onepage.js';
+        }
         $bjs .= '<script>var ONEPAGE = ' . json_encode($config) . ';</script>'
-            . '<script src="' . $pth['folder']['plugins'] . 'onepage/onepage.min.js"></script>';
+            . '<script src="' . $file . '"></script>';
     }
 
     /**
