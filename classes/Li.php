@@ -75,7 +75,7 @@ class Li extends XH_Li
         if (XH_ADM) {
             $html .= '?' . $u[$i];
         }
-        if (isset($u[$i]) && !(XH_ADM && $edit)) {
+        if (isset($u[$i])) {
             if ($plugin_cf['onepage']['url_numeric']) {
                 $html .= '#' . $i;
             } else {
