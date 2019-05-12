@@ -72,15 +72,15 @@ class Li extends XH_Li
         global $sn, $u, $edit, $plugin_cf;
 
         $html = '<a href="' . $sn;
-        if (XH_ADM && !$edit) {
+        if (XH_ADM) {
             $html .= '?' . $u[$i];
         }
-        $html .= (XH_ADM && $edit) ? '?' : '#';
-        if (isset($u[$i])) {
-            if ($plugin_cf['onepage']['url_numeric'] && !(XH_ADM && $edit)) {
-                $html .= $i;
+        if (isset($u[$i]) && !(XH_ADM && $edit)) {
+            if ($plugin_cf['onepage']['url_numeric']) {
+                $html .= '#' . $i;
             } else {
-                $html .= $u[$i];
+                $url = Urlify::makeUniqueUrl($i);
+                $html .= '#' . $url;
             }
         }
         $html .= $x . '">';

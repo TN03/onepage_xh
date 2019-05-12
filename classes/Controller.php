@@ -163,9 +163,11 @@ class Controller
         if (!($edit && XH_ADM) && $s > -1) {
             $contents = '';
             foreach ($hc as $i) {
-                $url = $plugin_cf['onepage']['url_numeric']
-                    ? $i
-                    : XH_hsc(urldecode($u[$i]));
+                if ($plugin_cf['onepage']['url_numeric']) {
+                    $url = $i;
+                } else {
+                    $url = Urlify::makeUniqueUrl($i);
+                }
                 $pageData = $pd_router->find_page($i);
                 $content = self::replaceAlternativeHeading($c[$i], $pageData);
                 $contents .= sprintf(
