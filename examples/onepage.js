@@ -104,7 +104,9 @@ jQuery(function ($) {
         if (hash === '#') {
             dest = 0;
         } else {
-            dest = $(hash).offset().top - customOffset;
+            if ($(hash).length > 0) {
+                dest = $(hash).offset().top - customOffset;
+            }
         }
 
         //Scrollen mit konstanter Geschwindigkeit
