@@ -139,23 +139,6 @@ jQuery(function ($) {
         }
     }
     
-    function isEditMode() {
-        var menu, anchor;
-
-        menu = document.getElementById("xh_adminmenu");
-        if (menu) {
-            anchor = menu
-                .getElementsByTagName("ul")[0]
-                .getElementsByTagName("li")[0]
-                .getElementsByTagName("a")[0];
-            if (anchor.href.match(/&normal$/)) {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
     function init() {
         //Position berichtigen, wenn Seite mit Hash aufgerufen
         //und customOffset > 0
@@ -169,10 +152,8 @@ jQuery(function ($) {
         //$("a.scrollTo").click(function (e) {
         $("ul.onepage_menu a").click(function (e) {
             var hash = this.hash;
-            if (hash.length > 0) {
+            if (hash.length > 0 && ONEPAGE.isOnepage) {
                 scrollToId(hash);
-            }
-            if (!isEditMode()) {
                 e.preventDefault();
             }
         });
