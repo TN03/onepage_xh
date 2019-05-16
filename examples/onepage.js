@@ -88,16 +88,13 @@ jQuery(function ($) {
             window.location.href = refreshUrl + hash;
         }
 
-
-        //Hash "anspringen", damit Browser-Historie passt,
-        //aber nicht im IE11
-        if (!navigator.userAgent.match(/Trident.*rv\:11\./)
-                && updateHash) {
-            //Aktuelle Position abspeichern
-            //var pos wird auch bei konstatnter Geschwindigkeit verwendet
-            var pos = $(window).scrollTop();
-            window.location.hash = hash;
-            $(window).scrollTop(pos);
+        //Hash aktualisieren, damit Browser-Historie passt,
+        if (updateHash) {
+            if(history.pushState) {
+                history.pushState(null, null, hash);
+            } else {
+                window.location.hash = hash;
+            }
         }
 
         var dest;
@@ -123,12 +120,7 @@ jQuery(function ($) {
          */
 
         $("html,body").stop().animate({scrollTop: dest},
-        +ONEPAGE.scrollDuration, "swing", function () {
-            //im IE 11 Hash "anspringen"
-            if (updateHash && navigator.userAgent.match(/Trident.*rv\:11\./)) {
-                window.location.hash = hash;
-            }
-        });
+            +ONEPAGE.scrollDuration, "swing");
     }
 
     function toggleTopLink() {
