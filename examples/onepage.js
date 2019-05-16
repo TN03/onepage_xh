@@ -141,8 +141,7 @@ jQuery(function ($) {
             }
         }
         initMenuClasses();
-        //$("a.scrollTo").click(function (e) {
-        $("ul.onepage_menu a").click(function (e) {
+        $("ul.onepage_menu a, a.scrollTo").click(function (e) {
             var hash = this.hash;
             if (hash.length > 0 && ONEPAGE.isOnepage) {
                 scrollToId(hash);
