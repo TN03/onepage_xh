@@ -45,6 +45,16 @@ jQuery(function ($) {
             $anchor.parent("li").removeClass("sdoc");
         }
     }
+    
+    function adjustEditLink($url) {
+        var $editLink = $('#xh_adminmenu a:first[href$="&edit"]');
+        if ($editLink.length) {
+            $url = $url.split('?').pop();
+            $url = $url.split('#');
+            $url = $url[0];
+            $('#xh_adminmenu a:first').attr('href', '?' + $url + '&edit');
+        }
+    }
 
     function initMenuClasses() {
         var hash = window.location.hash;
@@ -73,6 +83,7 @@ jQuery(function ($) {
                 var $active = $nav.find("a[href$=" + "'#" +
                         $(this).attr('id') + "'" + "]");
                 toggleStatus($active, true);
+                adjustEditLink($active.attr('href'));
             }
         });
     }
