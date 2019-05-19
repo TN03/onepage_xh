@@ -47,12 +47,12 @@ jQuery(function ($) {
     }
     
     function adjustEditLink($url) {
-        var $editLink = $('#xh_adminmenu a:first[href$="&edit"]');
+        var $editLink = $('#xh_adminmenu a:first[href*="&edit"]');
         if ($editLink.length) {
             $url = $url.split('?').pop();
             $url = $url.split('#');
-            $url = $url[0];
-            $('#xh_adminmenu a:first').attr('href', '?' + $url + '&edit');
+            $('#xh_adminmenu a:first')
+                .attr('href', '?' + $url[0] + '&edit' + '#' + $url[1]);
         }
     }
 
