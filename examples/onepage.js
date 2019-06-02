@@ -150,7 +150,7 @@ jQuery(function ($) {
     }
 
     function toggleTopLink() {
-        if ($(window).scrollTop() > 300) {
+        if ($(window).scrollTop() > +ONEPAGE.toplinkScrollposition) {
             $("#onepage_toplink").stop().fadeIn();
         } else {
             $("#onepage_toplink").stop().fadeOut();

@@ -14,6 +14,7 @@ $plugin_tx['onepage']['cf_url_numeric']="Whether to use numeric URLs for the pag
 $plugin_tx['onepage']['cf_use_javascript']="Whether to use the shipped JavaScript or not.";
 $plugin_tx['onepage']['cf_scroll_duration']="The maximum duration of the smooth scrolling (milliseconds). Leave empty to disable smooth scrolling.";
 $plugin_tx['onepage']['cf_scroll_easing']="The easing function of the smooth scrolling.";
+$plugin_tx['onepage']['cf_toplink_scrollposition']="The scroll position from which the top link is displayed.";
 $plugin_tx['onepage']['cf_inner_class']="The CSS class to set for the inner page container."
 
 ?>

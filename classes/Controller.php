@@ -62,7 +62,8 @@ class Controller
             'isOnepage' => !$edit && (!XH_ADM || $s >= 0),
             'numericUrls' => $pcf['url_numeric'],
             'scrollDuration' => $pcf['scroll_duration'],
-            'scrollEasing' => $pcf['scroll_easing']
+            'scrollEasing' => $pcf['scroll_easing'],
+            'toplinkScrollposition' => $pcf['toplink_scrollposition']
         );
         if (XH_ADM && $pcf['url_numeric']) {
             $config['urls'] = array_flip($u);
