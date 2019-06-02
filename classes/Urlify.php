@@ -33,6 +33,7 @@ class Urlify
 
     $url = str_replace('/', '_', urldecode($u[$i]));
     $url = preg_replace('/[^a-zA-Z0-9_-]/', '', 'id' . $i . '_' . $url);
+    $url = strtolower($url);
     return $url;
   }
 }
