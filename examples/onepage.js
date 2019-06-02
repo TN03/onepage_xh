@@ -23,6 +23,10 @@ jQuery(function ($) {
     //Default: 0
     var customOffset = typeof onepage_customOffset !== "undefined" ?
             onepage_customOffset : 0;
+    //Scroll-Offset zur Markierung des aktiven Menuepunktes
+    //Default: 0
+    var navSpyOffset = typeof onepage_navSpyOffset !== "undefined" ?
+            onepage_navSpyOffset : 0;
     //Menueklassen beim Scrollen updaten?
     //Default: true
     var updateNavOnScroll = typeof onepage_updateNavOnScroll !== "undefined" ?
@@ -89,7 +93,7 @@ jQuery(function ($) {
     function updateMenuClasses() {
         var curPos = $(window).scrollTop();
         $sections.each(function () {
-            var top = $(this).offset().top - customOffset;
+            var top = $(this).offset().top - customOffset - navSpyOffset;
             var bottom = top + $(this).outerHeight();
             if (curPos >= top - 1 && curPos <= bottom) {
                 $nav.find("a").each(function () {
